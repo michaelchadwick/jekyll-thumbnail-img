@@ -12,8 +12,13 @@ The plugin provides a Liquid filter `thumbnail_img` as follows:
 ```
 {% thumbnail_img <path to image> <width in pixels> %}
 ```
-For example:
+This can be used in `img` tags as follows:
 ```
-{% thumbnail_img path/to/image.jpg 500 %}
+<img src="{% thumbnail_img path/to/image.jpg 500 %}">
 ```
-This will generate a thumbnail of width 500px with the same aspect ratio as the original image in the directory `path/to/thumbnails` with the name `image_500w.jpg`.
+This will generate a thumbnail of width 500px with the same aspect ratio as the original image in the directory `path/to/thumbnails` with the name `image_500w.jpg` which will be used as the `src` attribute of the `img` tag.
+
+Alternatively, Jekyll variables can be used as follows:
+```
+<img src="{% thumbnail_img page.image_path 500 %}">
+```
