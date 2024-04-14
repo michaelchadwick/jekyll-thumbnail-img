@@ -1,4 +1,4 @@
-VERSION := 0.1.0
+VERSION = 0.1.1
 DOCKER_SHELL = docker run --rm -it \
 	--volume="$(shell pwd):/jekyll-thumbnail-img:rw" \
 	-w /jekyll-thumbnail-img \
@@ -15,5 +15,9 @@ clean:
 install-test: build
 	@$(DOCKER_SHELL) -c "gem install ./jekyll-thumbnail-img-$(VERSION).gem" \
 		| grep "Successfully installed jekyll-thumbnail-img-$(VERSION)"
+
+publish: build
+	@$(DOCKER_SHELL) -c "gem push jekyll-thumbnail-img-$(VERSION).gem"
+
 shell:
 	@$(DOCKER_SHELL)
