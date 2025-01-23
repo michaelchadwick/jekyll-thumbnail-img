@@ -29,6 +29,7 @@ module Jekyll
     end
 
     def self.generate_thumbnails(site)
+      Jekyll.logger.info "JekyllThumbnailImg:", "generate_thumbnails"
       @@pending.each do |thumb|
         FileUtils.mkdir_p(File.dirname(thumb[:dest]))
         if !File.exist?(thumb[:dest]) || File.mtime(thumb[:dest]) <= File.mtime(thumb[:source])
