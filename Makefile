@@ -1,4 +1,4 @@
-VERSION = 0.1.2
+VERSION = 0.1.3
 DOCKER_SHELL = docker run --rm -it \
 	--volume="$(shell pwd):/jekyll-thumbnail-img:rw" \
 	-w /jekyll-thumbnail-img \
